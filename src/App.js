@@ -3,7 +3,8 @@ import ReactDOM from "react-dom/client";
 import Header from "./components/Header.js";
 import Body from "./components/Body.js";
 import Footer from "./components/Footer.js";
-import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+//createBrowserRouter
+import { createHashRouter, RouterProvider, Outlet } from "react-router-dom";
 //import About from "./components/About.js";
 import Contact from "./components/Contact.js";
 import Error from "./components/Error.js";
@@ -22,7 +23,7 @@ const AppLayout = () => {
     </div>
   );
 };
-const appRouter = createBrowserRouter([
+const appRouter = createHashRouter([
   {
     path: "/",
     element: <AppLayout />,
@@ -53,6 +54,7 @@ const appRouter = createBrowserRouter([
   },
 ]);
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+//const root = ReactDOM.createRoot(document.getElementById("root"));
 //root.render(<AppLayout />);
-root.render(<RouterProvider router={appRouter} />);
+//root.render(<RouterProvider router={appRouter} />);
+export default appRouter;
