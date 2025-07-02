@@ -6,7 +6,7 @@
     "test": "jest",
     "start": "parcel index.html",
     "build": "parcel build index.html",
-    "build:gh": "parcel build index.html --dist-dir docs"
+    "build:gh": "parcel build index.html --dist-dir docs --no-cache"
   },
   "repository": {
     "type": "git",
