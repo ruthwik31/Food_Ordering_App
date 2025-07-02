@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "description": "Live Hosting at https://hungrydine.vercel.app/",
   "scripts": {
-    "test": "jest",
     "start": "parcel index.html",
     "build": "parcel build index.html",
-    "build:gh": "parcel build index.html --dist-dir docs --no-cache"
+    "build:gh": "parcel build index.html --dist-dir docs --no-cache",
+    "predeploy": "npm run build:gh",
+    "deploy": "gh-pages -d docs"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,7 @@
   "homepage": "https://github.com/ruthwik31/Food_Ordering_App",
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.11",
+    "gh-pages": "^6.3.0",
     "parcel": "^2.15.4"
   },
   "dependencies": {
