@@ -3,10 +3,8 @@
   "version": "1.0.0",
   "description": "Live Hosting at https://hungrydine.vercel.app/",
   "scripts": {
-    "start": "parcel index.html",
-    "build": "parcel build index.html",
-    "build:gh": "parcel build index.html --dist-dir docs --no-cache",
-    "predeploy": "npm run build:gh",
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html --dist-dir docs",
     "deploy": "gh-pages -d docs"
   },
   "repository": {
