@@ -1,0 +1,4 @@
+~Hook names must start with use followed by a capital letter, like useState
+ `useState hook` is used to maintain the state in our React application. It keeps track of the state changes so basically useState has the ability to encapsulate local state in a functional component.
+The useState hook is a special function that takes the `initial state` as an `argument` and `returns an array` of two entries. UseState encapsulate only singular value from the state, for multiple state need to have useState calls.
+  //async function always returns a Promise,

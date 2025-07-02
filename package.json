@@ -1,0 +1,29 @@
+{
+  "name": "food_ordering_app",
+  "version": "1.0.0",
+  "description": "Live Hosting at https://hungrydine.vercel.app/",
+  "scripts": {
+    "test": "jest",
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ruthwik31/Food_Ordering_App.git"
+  },
+  "author": "Ruthwik",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ruthwik31/Food_Ordering_App/issues"
+  },
+  "homepage": "https://github.com/ruthwik31/Food_Ordering_App#readme",
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.11",
+    "parcel": "^2.15.4"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-router-dom": "^6.22.0"
+  }
+}
