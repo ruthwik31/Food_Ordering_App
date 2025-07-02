@@ -5,7 +5,8 @@
   "scripts": {
     "test": "jest",
     "start": "parcel index.html",
-    "build": "parcel build index.html"
+    "build": "parcel build index.html",
+    "build:gh": "parcel build index.html --dist-dir docs"
   },
   "repository": {
     "type": "git",
@@ -16,7 +17,7 @@
   "bugs": {
     "url": "https://github.com/ruthwik31/Food_Ordering_App/issues"
   },
-  "homepage": "https://github.com/ruthwik31/Food_Ordering_App#readme",
+  "homepage": "https://github.com/ruthwik31/Food_Ordering_App",
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.11",
     "parcel": "^2.15.4"
