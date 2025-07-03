@@ -1,13 +1,12 @@
 import RestaurantCard, { withPromotedLabel } from "./RestaurantCard.js";
-
 //import resList from "../utils/mockdata.js";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Shimmerui from "./shimmer.js";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus.js";
+import UserContext from "../utils/UserContext.js";
 
-const RestaurantCardPromoted = withPromotedLabel;
-RestaurantCard;
+const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
@@ -19,15 +18,9 @@ const Body = () => {
   }, []);
 
   const fetchData = async () => {
-    //const data = await fetch(
-    //https://corsproxy.io/?
-    //"https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.406498&lng=78.47724389999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    //);
     const data = await fetch(
-      "https://corsproxy.io/?" +
-        encodeURIComponent(
-          "https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.406498&lng=78.47724389999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-        )
+      //https://corsproxy.io/?
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.406498&lng=78.47724389999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
 
     const json = await data.json();
@@ -48,40 +41,44 @@ const Body = () => {
       <h1>Looks like you are offline, please check your internet connection</h1>
     );
   }
+  const { loggedInUser, setUserName } = useContext(UserContext);
   if (listOfRestaurants.length === 0) {
     return <Shimmerui />;
   }
   //ternary operator to check if the listOfRestaurants is empty
   //return listOfRestaurants.length === 0 ? (<Shimmerui />) : (
   return (
-    <div className="body">
+    <div className="p-4">
       <div className="filter">
-        <div className="search mx-2 px-3 ">
-          <input
-            type="text"
-            className="border border-solid border-black"
-            value={searchText}
-            onChange={(e) => {
-              setSearchText(e.target.value);
-            }}
-          />
-          <button
-            className="cursor-pointer px-4 bg-green-100 m-4 rounded-lg"
-            onClick={() => {
-              const filteredList = listOfRestaurants.filter((res) =>
-                res.info.name.toLowerCase().includes(searchText.toLowerCase())
-              );
-              setFilteredRestaurants(filteredList);
-            }}
-          >
-            search
-          </button>
+        <div className="flex flex-wrap justify-between items-center gap-4 mb-6">
+          <div className="flex gap-2">
+            <input
+              type="text"
+              className="border border-black px-2 py-0.5 w-40 h-9 text-sm rounded"
+              placeholder="Search..."
+              value={searchText}
+              onChange={(e) => {
+                setSearchText(e.target.value);
+              }}
+            />
 
+            <button
+              className="cursor-pointer bg-green-200 text-sm px-3 py-1 rounded hover:bg-green-300"
+              onClick={() => {
+                const filteredList = listOfRestaurants.filter((res) =>
+                  res.info.name.toLowerCase().includes(searchText.toLowerCase())
+                );
+                setFilteredRestaurants(filteredList);
+              }}
+            >
+              🔍search
+            </button>
+          </div>
           <button
-            className=" cursor-pointer border border-solid px-4 bg-green-100 m-4"
+            className=" bg-blue-100 px-4 py-2 text-sm rounded hover:bg-blue-200"
             onClick={() => {
               const filteredList = listOfRestaurants.filter(
-                (res) => res.info.avgRating > 4.3
+                (res) => res.info.avgRating > 4.1
               );
               setFilteredRestaurants(filteredList);
               //setListOfRestaurants(filteredList);
@@ -90,6 +87,15 @@ const Body = () => {
           >
             Top Rated Restaurants
           </button>
+          <div className="flex items-center gap-2">
+            <label className="text-sm font-medium">UserName:</label>
+            <input
+              type="text"
+              className="border border-black px-2 py-1 text-sm rounded"
+              value={loggedInUser}
+              onChange={(e) => setUserName(e.target.value)}
+            />
+          </div>
         </div>
       </div>
       <div className="flex flex-wrap">
