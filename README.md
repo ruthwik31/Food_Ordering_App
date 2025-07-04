@@ -39,7 +39,9 @@ cd Food_Ordering_App
 
 ### 2. Install Dependencies
 
+```bash
 npm install react react-router-dom @reduxjs/toolkit react-redux
+```
 
 ### 3. Start Development Server (with cache cleared)
 
