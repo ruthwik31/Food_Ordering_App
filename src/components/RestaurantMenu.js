@@ -3,7 +3,6 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 import RestaurantCategory from "./RestaurantCategory";
-
 const RestaurantMenu = () => {
   const { id } = useParams();
   //console.log("resid=" + id);

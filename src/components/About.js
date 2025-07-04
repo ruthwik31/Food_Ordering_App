@@ -11,8 +11,8 @@ class About extends React.Component {
   render() {
     return (
       <div>
-        <h1>About</h1>
-        <User name={"Ruthwik"} />
+        
+        <User name={"HungryDine"} />
         {/*<UserClass name={"Ruthwik Class"} />*/}
       </div>
     );

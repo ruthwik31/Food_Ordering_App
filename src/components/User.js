@@ -23,10 +23,15 @@ console.log("render");
       >
         count
       </button>*/}
-      <h2>Name:{props.name}</h2>
-      <h3>Age:21</h3>
-      <h3>Location:Hyderabad</h3>
-      <h3>Contact:8555821118</h3>
+      <h2 className="underline">{props.name}</h2>
+      <p>
+        Welcome to HungryDine – your go-to destination for ordering delicious
+        food online with ease and speed. At HungryDine, we believe that great
+        food should be just a click away. Whether you're craving local
+        favorites, fast food, or gourmet meals, we've got you covered. Our
+        platform connects hungry users with the best restaurants around them,
+        offering a seamless and delightful food ordering experience.
+      </p>
     </div>
   );
 };

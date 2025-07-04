@@ -11,26 +11,32 @@ import Error from "./components/Error.js";
 import RestaurantMenu from "./components/RestaurantMenu.js";
 import UserContext from "./utils/UserContext.js";
 import { useState, useEffect } from "react";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore.js";
+import Cart from "./components/Cart.js";
+
 //chunking,code-splitting, lazy loading,dynammic bundleing,dynamic import
 
 const About = lazy(() => import("./components/About.js"));
 
 const AppLayout = () => {
   const [userName, setUserName] = useState();
-  useEffect(()=>{
-    const data={
-      name:"RUTHWIK",
+  useEffect(() => {
+    const data = {
+      name: "RUTHWIK",
     };
     setUserName(data.name);
-  },[]);
+  }, []);
   return (
-    <UserContext.Provider value={{ loggedInUser: userName ,setUserName}}>
-      <div className="app">
-        <Header />
-        <Outlet />
-        {/*<Footer />*/}
-      </div>
-    </UserContext.Provider>
+    <Provider store={appStore}>
+      <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+        <div className="app">
+          <Header />
+          <Outlet />
+          {/*<Footer />*/}
+        </div>
+      </UserContext.Provider>
+    </Provider>
   );
 };
 const appRouter = createHashRouter([
@@ -58,6 +64,10 @@ const appRouter = createHashRouter([
       {
         path: "restaurants/:id",
         element: <RestaurantMenu />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
     ],
     errorElement: <Error />,
