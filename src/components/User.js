@@ -3,15 +3,15 @@ const User = (props) => {
   const [count, setCount] = useState(0); //useState hook to manage state
   useEffect(() => {
     const timer=setInterval(() => {
-      console.log("Hai in User.js");
+      //console.log("Hai in User.js");
     }, 1000);
-    console.log("useEffect")
+    //console.log("useEffect")
     return () => {
       clearInterval(timer);
-      console.log("useEffect Return");
+      //console.log("useEffect Return");
     };
   }, []);
-console.log("render");
+//console.log("render");
 
   return (
     <div className="user-card">

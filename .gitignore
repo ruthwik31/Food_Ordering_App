@@ -2,3 +2,8 @@
 /.parcel-cache
 /dist
 /old_index.css
+/.parcelrc
+/babel.config.js
+/jest.config.js
+/coverage
+/src/components/__test__

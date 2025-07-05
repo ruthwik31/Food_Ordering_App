@@ -2,7 +2,7 @@ import React from "react";
 class UserClass extends React.Component {
   constructor(props) {
     super(props); //or else it throws error
-    console.log("child");
+    //console.log("child");
 
     this.state = {
       userInfo: {
@@ -11,7 +11,7 @@ class UserClass extends React.Component {
         avatar_url: "http://dummy-photo.com",
       },
     };
-    console.log(this.props.name + "child constructor"); //child props
+    //console.log(this.props.name + "child constructor"); //child props
   }
   //async
   //async function always returns a Promise,
@@ -33,7 +33,7 @@ class UserClass extends React.Component {
   }
   componentWillUnmount() {
     //clearInterval(this.timer);
-    console.log("component unmounted");
+    //console.log("component unmounted");
   }
   render() {
     //const { name } = this.props; //destructuring props

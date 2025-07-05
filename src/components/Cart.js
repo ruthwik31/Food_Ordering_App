@@ -8,7 +8,7 @@ import {
 
 const Cart = () => {
   const cartItems = useSelector((store) => store.cart.items);
-  console.log(cartItems);
+  //console.log(cartItems);
   const dispatch = useDispatch();
   const handleClearCart = () => {
     dispatch(clearCart());

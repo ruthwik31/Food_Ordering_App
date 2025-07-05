@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "Live Hosting at https://hungrydine.vercel.app/",
   "scripts": {
-    "start": "rmdir /s /q .parcel-cache dist && parcel src/index.html",
+    "start": "powershell -Command \"Remove-Item -Recurse -Force .parcel-cache, dist -ErrorAction SilentlyContinue\"; parcel src/index.html",
     "build": "parcel build src/index.html --dist-dir docs --no-cache --public-url ./",
+    "test": "jest",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d docs"
   },
@@ -17,10 +18,19 @@
   "bugs": {
     "url": "https://github.com/ruthwik31/Food_Ordering_App/issues"
   },
-  "homepage": "https://github.com/ruthwik31/Food_Ordering_App",
+  "homepage": "https://ruthwik31.github.io/Food_Ordering_App",
   "devDependencies": {
+    "@babel/core": "^7.28.0",
+    "@babel/preset-env": "^7.28.0",
+    "@babel/preset-react": "^7.27.1",
     "@tailwindcss/postcss": "^4.1.11",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "babel-jest": "^30.0.4",
     "gh-pages": "^6.3.0",
+    "jest": "^30.0.4",
+    "jest-environment-jsdom": "^30.0.4",
     "parcel": "^2.15.4"
   },
   "dependencies": {
