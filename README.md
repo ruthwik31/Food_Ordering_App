@@ -1,4 +1,4 @@
-Live Hosting at https://hungrydine.vercel.app/
+Live Hosting at https://ruthwik31.github.io/Food_Ordering_App/#/
 
 # 🍽️ HungryDine – React Food Ordering App
 
